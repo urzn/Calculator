@@ -16,7 +16,7 @@ public class App{
             mode = scanner.nextInt();
             switch (mode) {
                 case 1 :
-                    while (true){
+                    do{
                         System.out.print("첫번째 숫자 입력 : ");
                         num1 = scanner.nextInt();
                         System.out.print("두번째 숫자 입력 : ");
@@ -26,20 +26,13 @@ public class App{
 
                         calculator.calculate(num1, num2, strsymbol.charAt(0));
                         System.out.println("더 계산하시겠습니까? (exit 입력 시 나가기)");
-                        if (scanner.next().equals("exit")){
-                            break;
-                        }
-                    }
+                    } while(!scanner.next().equals("exit"));
                     break;
                 case 2 :
                     System.out.println(results);
                     break;
                 case 3 :
-                    if(results.isEmpty())
-                        System.out.println("계산결과가 없습니다");
-                    else
-                        calculator.removeResult();
-
+                    calculator.removeResult();
                     break;
                 case 0 :
                     break;

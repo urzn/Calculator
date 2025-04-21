@@ -4,13 +4,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Calculator {
-    private ArrayList<Double> results = new ArrayList<>();
-    int num1 = this.num1;
-    int num2;
-    char symbol;
-    double result;
+    private final ArrayList<Double> results = new ArrayList<>();
 
     public void calculate(int num1, int num2, char symbol){
+        double result;
         if (symbol == '+') {
             result = num1 + num2;
         } else if (symbol == '-') {
@@ -19,7 +16,7 @@ public class Calculator {
             result = num1 * num2;
         } else if (symbol == '/') {
             if (num2 != 0) {
-                result = (double) num1 / (double) num2;
+                result = (double) num1 / num2;
             } else {
                 System.out.println("나눗셈 연산에서 두번째 정수에 0이 입력될 수 없습니다");
                 return;
@@ -41,6 +38,9 @@ public class Calculator {
     }
 
     public void removeResult(){
-        results.remove(0);
+        if(!results.isEmpty())
+            results.remove(0);
+        else
+            System.out.println("저장된 계산결과가 없습니다");
     }
 }

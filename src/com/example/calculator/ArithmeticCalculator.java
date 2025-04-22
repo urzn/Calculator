@@ -1,6 +1,7 @@
 package com.example.calculator;
-
+import java.util.*;
 import java.util.ArrayList;
+import java.util.stream.*;
 
 public class ArithmeticCalculator {
     private final ArrayList<Double> results = new ArrayList<>();
@@ -58,21 +59,23 @@ public class ArithmeticCalculator {
             System.out.println("저장된 계산결과가 없습니다.");
     }
 
-    public ArrayList<Double> findLargerNumber(String input){
-        LargerNumberFinder<ArrayList<Double>, String> l = (u) -> {
+    public List<Double> findLargerNumber(String input){
+        LargerNumberFinder<List<Double>, String> l = (u) -> {
             double inputVal = Double.parseDouble(u);
-            ArrayList<Double> largerResults = new ArrayList<>();
+            List<Double> largerResults = new ArrayList<>();
 
-            for (Double result : results){
+            largerResults = results.stream()
+                    .filter(num -> num > inputVal)
+                    .collect(Collectors.toList());
+
+            /*for (Double result : results){
                 if(result > inputVal){
                     largerResults.add(result);
                 }
-            }
+            }*/
             return largerResults;
         };
-
         return l.findLargerNumber(input);
-
     }
 
 

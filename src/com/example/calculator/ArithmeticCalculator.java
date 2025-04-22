@@ -59,7 +59,7 @@ public class ArithmeticCalculator {
     }
 
     public ArrayList<Double> findLargerNumber(String input){
-        LargerNumberFinder<ArrayList<Double>, String> l = (d, u) -> {
+        LargerNumberFinder<ArrayList<Double>, String> l = (u) -> {
             double inputVal = Double.parseDouble(u);
             ArrayList<Double> largerResults = new ArrayList<>();
 
@@ -71,7 +71,7 @@ public class ArithmeticCalculator {
             return largerResults;
         };
 
-        return l.findLargerNumber(results, input);
+        return l.findLargerNumber(input);
 
     }
 

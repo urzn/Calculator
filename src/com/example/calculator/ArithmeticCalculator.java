@@ -57,4 +57,23 @@ public class ArithmeticCalculator {
         else
             System.out.println("저장된 계산결과가 없습니다.");
     }
+
+    public ArrayList<Double> findLargerNumber(String input){
+        LargerNumberFinder<ArrayList<Double>, String> l = (d, u) -> {
+            double inputVal = Double.parseDouble(u);
+            ArrayList<Double> largerResults = new ArrayList<>();
+
+            for (Double result : results){
+                if(result > inputVal){
+                    largerResults.add(result);
+                }
+            }
+            return largerResults;
+        };
+
+        return l.findLargerNumber(results, input);
+
+    }
+
+
 }

@@ -8,12 +8,13 @@ public class App{
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int mode = 1;
-        String input1, input2, stroperator;
+        String input1, input2, stroperator, input3;
         Number num1, num2;
         ArithmeticCalculator calculator = new ArithmeticCalculator();
+        //ArrayList<Double> results = new ArrayList<>();
 
         while(mode != 0){
-            System.out.println("계산기 모드 선택. 1:계산 2:계산결과조회 3:오래된 연산 결과 삭제 0:종료");
+            System.out.println("계산기 모드 선택. 1:계산 2:계산결과조회 3:오래된 연산 결과 삭제 4:입력값보다 큰 계산결과 조회 0:종료");
             try{
                 mode = scanner.nextInt();
                 scanner.nextLine();
@@ -60,15 +61,21 @@ public class App{
                     } while(!scanner.nextLine().equals("exit"));
                     break;
                 case 2 :
+
                     System.out.println(calculator.getResults());
                     break;
                 case 3 :
                     calculator.removeResult();
                     break;
+                case 4 :
+                    System.out.print("계산결과 중 입력값보다 큰 값을 출력합니다. 입력 : ");
+                    input3 = scanner.nextLine();
+                    System.out.println(calculator.findLargerNumber(input3));
+                    break;
                 case 0 :
                     break;
                 default :
-                    System.out.println("0 1 2 3 이 아닙니다.");
+                    System.out.println("0 1 2 3 4 가 아닙니다.");
                     break;
             }
         }

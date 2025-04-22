@@ -1,3 +1,7 @@
+///////////////////////////////
+/////이 클래스는 사용하지 않음/////
+///////////////////////////////
+
 package com.example.calculator;
 
 import java.util.ArrayList;
@@ -6,15 +10,15 @@ import java.util.Scanner;
 public class Calculator {
     private final ArrayList<Double> results = new ArrayList<>();
 
-    public void calculate(int num1, int num2, char symbol){
+    public void calculate(int num1, int num2, char operator){
         double result;
-        if (symbol == '+') {
+        if (operator == '+') {
             result = num1 + num2;
-        } else if (symbol == '-') {
+        } else if (operator == '-') {
             result = num1 - num2;
-        } else if (symbol == '*') {
+        } else if (operator == '*') {
             result = num1 * num2;
-        } else if (symbol == '/') {
+        } else if (operator == '/') {
             if (num2 != 0) {
                 result = (double) num1 / num2;
             } else {
